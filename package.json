@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-      "setup": "node /node-modules/selenium-standalone/bin/selenium-standalone install",
-      "start": "node nightwatch.js"
+      "install": "node node_modules/selenium-standalone/bin/selenium-standalone install",
   },
   "author": "Ngoc Nguyen",
   "license": "ISC",
