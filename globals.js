@@ -7,6 +7,7 @@ const constantsLogin = {
   passwordPass : '123456789Aab'
 };
 export default {
-  waitForConditionTimeout : 4000,
-  constantsLogin : constantsLogin
+  waitForConditionTimeout : 10000,
+  constantsLogin : constantsLogin,
+  waitForAPICallback : 4000
 };
