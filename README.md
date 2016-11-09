@@ -140,7 +140,7 @@ export default {
 
 The way to achieve this sort of clarity within a test, where the business logic is presented clearly and test can be easily understood even by non tech-saavy people is by introducing the Page Object pattern. `loginPage` and `mainPage`(page redirect apter login success) objects contain all the methods and ui elements that are needed to make interactions within that page.
 
-##### Log in Page Object
+### Log in Page Object
 Page Objects files should be created in a `pages` folder. Create one in the root of your project. Next, create a `loginPage.js` file that will contain this code:
 
 ```javascript
@@ -190,7 +190,7 @@ as you can see the Page Object contains:
 
 As you've probably noticed there's an `@` prefix used before the locators both inside the test and in the loginCommands object. This tells Nightwatch that it should refer to the key declared in the `elements` property inside the Page Object.
 
-#### Main Page Object
+### Main Page Object
 
 File `pages/mainPage.js`. It should contain the following code:
 
