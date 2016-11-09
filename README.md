@@ -97,7 +97,7 @@ I'll go through the important parts of the `nightwatch.json` file:
 
 ### Adding ECMAScript 6 to nightwatch
 
-To use ECMAScript 6, you'll have to add a `nightwatch.conf.js` file to the root of your project. The file should contain these couple of lines:
+To use ECMAScript 6, i will have to add a `nightwatch.conf.js` file to the root of your project. The file should contain these couple of lines:
 
 ```javascript
 require('babel-core/register');
