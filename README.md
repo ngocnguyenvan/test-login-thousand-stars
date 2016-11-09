@@ -1,4 +1,5 @@
 # test-login-thousand-stars
+End to End testing of React apps with Nightwatch
 ### Requirements
 You will `need`:
 - [Java v8](https://java.com/en/download/)
@@ -271,6 +272,6 @@ Well done!
 
 
 ### Reference
--[syncano.io](https://www.syncano.io/blog/testing-syncano/)
+  [syncano.io](https://www.syncano.io/blog/testing-syncano/)
 
--[nightwatchjs](http://nightwatchjs.org/)
+  [nightwatchjs](http://nightwatchjs.org/)
