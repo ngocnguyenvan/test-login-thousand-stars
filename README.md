@@ -3,7 +3,7 @@
 ### 1.	Introduction
 Currently, in the Stars and Malabar project unused test tools for frontend. To save time for regression testing in both project, need to use tool End-to-End tests in Node.js quickly and support ReactJs
 ### 2.	Auto Testing Solutions
-I do not find support End-to-End testing tool test directly in reactjs (Facebook using [Jest](https://facebook.github.io/jest/) but it is focused on testing isolated pieces of your application logic). We testing with DOM elements are rendered after the code Reactjs. 
+I do not find support End-to-End testing tool test directly in reactjs (Facebook using [Jest](https://facebook.github.io/jest/) but it is focused on testing isolated pieces of your application logic). We testing with DOM elements after the code Reactjs rendered. 
 
 So we can use Selenium WebDriver API. There are many libraries trying to make it simpler:
 -	Nightwatch.js
