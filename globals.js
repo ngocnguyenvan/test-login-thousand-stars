@@ -9,5 +9,5 @@ const constantsLogin = {
 export default {
   waitForConditionTimeout : 10000,
   constantsLogin : constantsLogin,
-  waitForAPICallback : 4000
+  waitForAPICallback : 5000
 };
