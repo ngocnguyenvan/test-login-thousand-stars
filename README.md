@@ -1,13 +1,23 @@
-# test-login-thousand-stars
+# Test Tool Study Report
 End to End testing of React apps with Nightwatch
-### Requirements
+
+### 3. Overview about Nightwatch.js solution
+
+#### a. Overview
+ 
+ Nightwatch.js is an easy to use Node.js based End-to-End (E2E) testing solution for browser based apps and websites. It uses the powerful W3C WebDriver API to perform commands and assertions on DOM elements.
+ 
+#### b. Main Features
+ 	<img src="./resources/main-feature-nightwatch.jpg" width="200" alt="Tree of a Thousand Stars, Serissa foetida, Snow Rose, Japanese Boxthorn" />
+### 4. Demo using Nightwatch.js in Auto Testing Login in Stars
+
+#### a. How to Write Codes
+##### i. Installation
 You will `need`:
 - [Java v8](https://java.com/en/download/)
 - [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 As they are all required for `Selenium` and `Nightwatch` to work properly.
-
-### Installation
 
 Go to your terminal run: 
 
@@ -16,7 +26,7 @@ Go to your terminal run:
 `npm run setup` 
 
 It will download the latest version of selenium server and browser driver
-### Configuration
+##### ii. Configuration
 
 Nightwatch relies on `nightwatch.json` as the configuration file for the test runs. It should be placed in projects root directory. It specifies various configuration settings like test environments (browsers, resolutions), test file paths and selenium-specific settings. This is how the configuration file can look like:
 
@@ -95,7 +105,7 @@ I'll go through the important parts of the `nightwatch.json` file:
 
 `test_settings` is an object where you specify the test environments (include `chrome`, `firefox`, `ie` ...). The important bit in the `default` environment is the `desiredCapabilities` object where we specify the `chrome` as the `browserName` so that Nightwatch will run the test against it.
 
-### Adding ECMAScript 6 to nightwatch
+##### iii. Configuration Adding ECMAScript 6 to nightwatch
 
 To use ECMAScript 6, i will have to add a `nightwatch.conf.js` file to the root of your project. The file should contain these couple of lines:
 
@@ -105,9 +115,11 @@ require('babel-core/register');
 module.exports = require('./nightwatch.json');
 ```
 
-### The Tests login in Stars
+##### iv. The Tests login
 
-In fordel `tests/login'. I have 4 files correspond to 4 cases login:
+###### - In folder `tests/login`. 
+
+I have 4 files correspond to 4 cases login:
 
 Eg: `testCase1.js` test that is check case "User Log in Email Blank"
 
@@ -140,7 +152,7 @@ export default {
 
 The way to achieve this sort of clarity within a test, where the business logic is presented clearly and test can be easily understood even by non tech-saavy people is by introducing the Page Object pattern. `loginPage` and `mainPage`(page redirect apter login success) objects contain all the methods and ui elements that are needed to make interactions within that page.
 
-### Log in Page Object
+###### - Log in Page Object
 Page Objects files should be created in a `pages` folder. Create one in the root of your project. Next, create a `loginPage.js` file that will contain this code:
 
 ```javascript
@@ -190,7 +202,7 @@ as you can see the Page Object contains:
 
 As you've probably noticed there's an `@` prefix used before the locators both inside the test and in the loginCommands object. This tells Nightwatch that it should refer to the key declared in the `elements` property inside the Page Object.
 
-### Main Page Object
+###### - Main Page Object
 
 File `pages/mainPage.js`. It should contain the following code:
 
@@ -213,7 +225,7 @@ The `main` element is used in the 12 line of the `testCase4.js` file to assert i
 ```javascript
     mainPage.expect.element('@main').to.be.visible;
 ```
-### Running the test
+#### b. Run the Demo
 
 Run this command:
 
@@ -272,6 +284,6 @@ Well done!
 
 
 ### Reference
-  [syncano.io](https://www.syncano.io/blog/testing-syncano/)
+- [syncano.io](https://www.syncano.io/blog/testing-syncano/)
+- [nightwatchjs](http://nightwatchjs.org/)
 
-  [nightwatchjs](http://nightwatchjs.org/)
