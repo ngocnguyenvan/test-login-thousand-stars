@@ -282,8 +282,8 @@ Detail report will save in folder `reports/login`
 
 Well done! 
 
-
-### Reference
+### 5. Assessment and QA Proposal
+### 6. Reference
 - [syncano.io](https://www.syncano.io/blog/testing-syncano/)
 - [nightwatchjs](http://nightwatchjs.org/)
 
