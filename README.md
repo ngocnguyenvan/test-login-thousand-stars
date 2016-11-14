@@ -8,8 +8,8 @@ End to End testing of React apps with Nightwatch
  Nightwatch.js is an easy to use Node.js based End-to-End (E2E) testing solution for browser based apps and websites. It uses the powerful W3C WebDriver API to perform commands and assertions on DOM elements.
  
 #### b. Main Features
- 	![alt tag](https://github.com/ngocnguyenvan/test-login-thousand-stars/blob/master/resources/main-feature-nightwatch.png)
-	
+ 	![alt tag](https://github.com/ngocnguyenvan/test-login-thousand-stars/blob/master/resources/main-feature-nightwatch.jpg)
+	<img src="https://github.com/ngocnguyenvan/test-login-thousand-stars/blob/master/resources/main-feature-nightwatch.jpg" width="200"  />
 ### 4. Demo using Nightwatch.js in Auto Testing Login in Stars
 
 #### a. How to Write Codes
