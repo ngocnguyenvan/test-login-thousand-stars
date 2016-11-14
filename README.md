@@ -291,9 +291,16 @@ OK. 6  total assertions passed. (50.709s)
 
 Detail report will save in folder `reports/login`
 
-Well done! 
-
 ### 5. Assessment and QA Proposal
+
+Nightwatch can test many browsers at the same time, such as: Chrome, Firefox, IE. And we can create mobile environment to run test script. However it’s difficult to check logic function (post function) in multi browsers.
+
+Test result is not easy to view because it based on assertions not based on test case ( 1 case has many assertions). 
+
+With Ylopo, we can use Night watch to test the UI (such as: checking validation, returning value of API,…) if the UI (Stars or Malabar) is stable (The UI does not have much changing) . This will help us to reduce testing script maintaining effort.
+
+Please suggest the stable function (or UI) so that we can start create automation test script.
+
 ### 6. Reference
 - [syncano.io](https://www.syncano.io/blog/testing-syncano/)
 - [nightwatchjs](http://nightwatchjs.org/)
