@@ -1,6 +1,17 @@
 # Test Tool Study Report
-End to End testing of React apps with Nightwatch
 
+### 1.	Introduction
+Currently, in the Stars and Malabar project unused test tools for frontend. To save time for regression testing in both project, need to use tool End-to-End tests in Node.js quickly and support ReactJs
+### 2.	Auto Testing Solutions
+I do not find support End-to-End testing tool test directly in reactjs (Facebook using [Jest](https://facebook.github.io/jest/) but it is focused on testing isolated pieces of your application logic). We testing with DOM elements are rendered after the code Reactjs. 
+
+So we can use Selenium WebDriver API. There are many libraries trying to make it simpler:
+-	Nightwatch.js
+-	webdriver.io
+-	Protractor (specialized for Angluar.js apps)
+-	Chimp.io
+
+I'm using Nightwatch.js for e2e regression testing because it easy to use Node.js, uses the powerful W3C WebDriver API to perform commands, assertions on DOM elements and easy to extend.
 ### 3. Overview about Nightwatch.js solution
 
 #### a. Overview
