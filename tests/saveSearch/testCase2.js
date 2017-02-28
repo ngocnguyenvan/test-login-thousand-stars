@@ -16,7 +16,7 @@ export default {
         leadDetail
             .inputSaveSearch('Test label 2','C-Road, CA')
         client.pause(waitForAPICallback);
-       /* leadDetail
+        leadDetail
             .selectCity();
         client.pause(delayTime);
         leadDetail
@@ -26,6 +26,6 @@ export default {
             .submitAndSave();
         client.pause(waitForAPICallback);
         leadDetail.expect.element('@reusutlSaveSearchStandard').text.to.equal('Test label 2: C-Road, CA')
-    	client.end();*/
+    	client.end();
     }
 };
