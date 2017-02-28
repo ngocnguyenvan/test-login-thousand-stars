@@ -8,18 +8,20 @@ const leadDetailCommands = {
           .click('@loginButton')
     },
 
-    // Open Popup
-    openSaveSearchBlock() {
+    // Change screen
+    addSaveSearch() {
         return this
             .waitForElementVisible('@creatNewButton', 10000)
             .click('@creatNewButton')
     },
-    openEditSaveSearchStandardPopup() {
+    editSaveSearch() {
         return this
+            .waitForElementVisible('@editButtonSaveSearchStandard', 10000)
             .click('@editButtonSaveSearchStandard')
     },
     openEditSaveSearchFeaturePopup() {
         return this
+            .waitForElementVisible('@editButtonSaveSearchFeatured', 10000)
             .click('@editButtonSaveSearchFeatured')
     },
     // input action
@@ -136,6 +138,12 @@ const leadDetailCommands = {
         return this
             .click('@submitAndSaveButton')
     },
+    // delete action
+    delete() {
+        return this
+            .waitForElementVisible('@deleteButton', 10000)
+            .click('@deleteButton')
+    }
 
 };
 
@@ -143,7 +151,7 @@ export default {
   url: 'http://localhost:7811/lead-detail/9a75d28e-0dce-41b6-8b66-c6cb11b39de7',
   commands: [leadDetailCommands],
   elements: {
-        // < -- login -- >
+        // < -- login page -- >
         emailInput: {
           selector: 'input[type=text]'
         },
@@ -159,24 +167,16 @@ export default {
           locateStrategy: 'xpath'
         },
 
-        // < -- saveSearch -- >
+        // < -- saveSearch dialog -- >
 
 
         // Button
-        creatNewButton: {
-            selector: '//button/span[text()="Create New"]',
-            locateStrategy: 'xpath'
-        },
-        editButtonSaveSearchStandard: {
-            selector: '//table[@class="lead-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="column3 ylopo-row-column"]/a',
-            locateStrategy: 'xpath'
-        },
-        editButtonSaveSearchFeatured: {
-            selector: '//table[@class="lead-search-list"]/tbody/tr[@class="row-featured"][position()=last()]/td[@class="column3 ylopo-row-column"]/a',
-            locateStrategy: 'xpath'
-        },
         submitAndSaveButton: {
             selector: '//button/span[text()="Submit and Save"]',
+            locateStrategy: 'xpath'
+        },
+        deleteButton: {
+            selector: '//button/span[text()="Delete"]',
             locateStrategy: 'xpath'
         },
 
@@ -280,7 +280,23 @@ export default {
             locateStrategy: 'xpath'
         },
 
-        // Saved Search & Listing Alerts
+        // < -- Saved Search & Listing Alerts Block -- >
+
+        // Button
+        creatNewButton: {
+            selector: '//button/span[text()="Create New"]',
+            locateStrategy: 'xpath'
+        },
+        editButtonSaveSearchStandard: {
+            selector: '//table[@class="lead-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="column3 ylopo-row-column"]/a',
+            locateStrategy: 'xpath'
+        },
+        editButtonSaveSearchFeatured: {
+            selector: '//table[@class="lead-search-list"]/tbody/tr[@class="row-featured"][position()=last()]/td[@class="column3 ylopo-row-column"]/a',
+            locateStrategy: 'xpath'
+        },
+
+        // div result
         reusutlSaveSearchStandard: {
             selector: '//table[@class="lead-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="column1 ylopo-row-column"]',
             locateStrategy: 'xpath'

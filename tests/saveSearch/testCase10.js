@@ -3,7 +3,7 @@ export default {
     'Save search success': (client) => {
         const leadDetailAdd = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
-        const constantsLeadAdd = client.globals.constantsLeadAdd;
+        const constantsLeadAdd = client.globals.constantsAddLead;
         const waitForAPICallback = client.globals.waitForAPICallback;
         const loginPage = client.page.loginPage();
         const constantsLogin = client.globals.constantsLogin;
@@ -30,7 +30,6 @@ export default {
         client.pause(waitForAPICallback);
 
         // Check success
-        successPage.loadPage();
         successPage.expect.element('@main').to.be.visible;
         client.end();
       }
