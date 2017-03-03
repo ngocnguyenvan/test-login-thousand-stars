@@ -1,6 +1,6 @@
 export default {
-    '@tags': ['SaveSearch'],
-    'Save search with empty Location': (client) => {
+    '@tags': ['savedSearch'],
+    'Add Saved search có Favourite cities': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();
@@ -8,27 +8,17 @@ export default {
         const delayTime = client.globals.delayTime;
         const waitForAPICallback = client.globals.waitForAPICallback;
         leadDetail
-            .navigate('http://localhost:7811/lead-detail/084f5ecb-c9b8-44ef-92eb-a83c9f675af9')
+            .navigate()
             .login( constantsLogin.emailPass, constantsLogin.passwordPass)
         client.pause(waitForAPICallback);
 
         leadDetail.addSaveSearch();
         client.pause(delayTime);
-
-        leadDetail.changeInputLabelAndLocation("Test label 6")
-        client.pause(delayTime);
-
-        leadDetail.clickCheckbox('@favoriteCityCheckboxTestCase8');
-
-        leadDetail.clickCheckbox('@testCheckboxSaveSearch');
-
-        leadDetail.selectAmenity('@amenities3');
-
-        leadDetail.selectAmenity('@amenities4');
-
+        leadDetail.clickCheckbox('@favoriteCityCheckbox');
+        leadDetail.inputPrice(10000, '')
         leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
-
+        successPage.expect.element('@main').to.be.visible;
         client.end();
     }
 };

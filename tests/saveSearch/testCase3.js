@@ -1,6 +1,6 @@
 export default {
     '@tags': ['savedSearch'],
-    'Add  saved search có amenities': (client) => {
+    'Add Saved search có All Area': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();
@@ -8,28 +8,58 @@ export default {
         const delayTime = client.globals.delayTime;
         const waitForAPICallback = client.globals.waitForAPICallback;
         leadDetail
-            .navigate('http://localhost:7811/lead-detail/44bd6468-31ca-431d-80b3-7e14270baf46')
+            .navigate()
             .login( constantsLogin.emailPass, constantsLogin.passwordPass)
         client.pause(waitForAPICallback);
-        leadDetail
-            .openSaveSearchBlock();
-        client.pause(waitForAPICallback);
-        leadDetail
-            .inputSaveSearch('Test label 3','C-Road, CA')
-        client.pause(waitForAPICallback);
-        leadDetail
-            .selectCity();
+
+        leadDetail.addSaveSearch();
         client.pause(delayTime);
-        leadDetail
-            .checkHouseCheckbox();
+
+        leadDetail.changeInputLabelAndLocation("Test label 2")
         client.pause(delayTime);
-        leadDetail
-            .selectAmenity();
-        client.pause(delayTime);
-        leadDetail
-            .submitAndSave();
+
+        leadDetail.changeTabs('@tabAllAreas');
         client.pause(waitForAPICallback);
-        leadDetail.expect.element('@reusutlSaveSearchStandard').text.to.equal('Test label 3: C-Road, CA');
+        leadDetail.clickCheckbox('@countyCheckbox');
+
+        leadDetail.inputPrice('200', '400');
+
+        leadDetail.chooseSelectElement('@bedroomsSelect');
+        leadDetail.chooseOptionElement('@optionBedrooms');
+
+        leadDetail.chooseSelectElement('@BathsSelect');
+        leadDetail.chooseOptionElement('@optionBaths');
+
+        leadDetail.inputSqft('0', '2000');
+
+        leadDetail.chooseSelectElement('@yearMinSelect');
+        leadDetail.chooseOptionElement('@optionYearMin');
+
+        leadDetail.chooseSelectElement('@yearMaxSelect');
+        leadDetail.chooseOptionElement('@optionYearMax');
+
+        leadDetail.clickCheckbox('@houseCheckboxSaveSearch');
+
+        leadDetail.clickButton('@hasPhotoButton');
+
+        leadDetail.chooseSelectElement('@daysOnMarketSelect');
+        leadDetail.chooseOptionElement('@optionDaysOnMarket');
+
+        leadDetail.chooseSelectElement('@lotSizeMinSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMin');
+
+        leadDetail.chooseSelectElement('@lotSizeMaxSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMax');
+
+        leadDetail.clickCheckbox('@newOrUpdatedCheckbox');
+
+        leadDetail.chooseSelectElement('@frequencySelect');
+        leadDetail.chooseOptionElement('@optionFrequency');
+
+        leadDetail.submitAndSave();
+        client.pause(waitForAPICallback);
+
+        leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 2: CA, 5+ Beds, 6+ Baths, 0+ Sqft $200k-$400k');
         client.end();
     }
 };

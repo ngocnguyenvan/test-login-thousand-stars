@@ -8,7 +8,7 @@ export default {
 		const waitForAPICallback = client.globals.waitForAPICallback;
 		leadDetail
 			.navigate()
-			.login( constantsLogin.emailPass, constantsLogin.passwordPass)
+			.login(constantsLogin.emailPass, constantsLogin.passwordPass)
 		client.pause(waitForAPICallback);
         successPage.expect.element('@main').to.be.visible;
 		client.end();

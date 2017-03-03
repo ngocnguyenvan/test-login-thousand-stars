@@ -12,82 +12,56 @@ export default {
             .login( constantsLogin.emailPass, constantsLogin.passwordPass)
         client.pause(waitForAPICallback);
 
-        // Run Test Case 2
-        leadDetail.openSaveSearchBlock();
-        client.pause(waitForAPICallback);
-
-        leadDetail.inputSaveSearch('Test label 2','C-Road, CA')
-        client.pause(waitForAPICallback);
-
-        leadDetail.selectCity();
+        leadDetail.addSaveSearch();
         client.pause(delayTime);
 
-        leadDetail.checkHouseCheckbox();
+        leadDetail.changeInputLabelAndLocation("Test label 3")
         client.pause(delayTime);
 
-        leadDetail.submitAndSave();
-        client.pause(waitForAPICallback);
+        leadDetail.clickCheckbox('@favoriteCityCheckbox');
 
-        // Edit resutl Saved Search test case 2
-        leadDetail.openEditSaveSearchStandardPopup();
-        client.pause(waitForAPICallback);
+        leadDetail.changeTabs('@tabMapSearch');
 
-        leadDetail.changeInputLabelAndLocation("Test label 1")
-        client.pause(waitForAPICallback);
-
-        leadDetail.inputLocation("Lost Bridge Village, AR")
-        client.pause(waitForAPICallback);
-
-        leadDetail.selectCity();
-        client.pause(waitForAPICallback);
-
-        leadDetail.checkCondosCheckbox();
-        client.pause(waitForAPICallback);
-
-        leadDetail.checkApartmentsCheckbox();
-        client.pause(waitForAPICallback);
-
-        leadDetail.checkLandCheckbox();
-        client.pause(waitForAPICallback);
+        leadDetail.drawPolygon();
 
         leadDetail.inputPrice('200', '400');
         client.pause(delayTime);
 
-        leadDetail.chooseBedRoom();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@bedroomsSelect');
+        leadDetail.chooseOptionElement('@optionBedrooms');
 
-        leadDetail.selectBedRoom();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@BathsSelect');
+        leadDetail.chooseOptionElement('@optionBaths');
 
-        leadDetail.chooseBaths();
-        client.pause(delayTime);
+        leadDetail.inputSqft('0', '2000');
 
-        leadDetail.selectBaths();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@yearMinSelect');
+        leadDetail.chooseOptionElement('@optionYearMin');
 
-        leadDetail.inputSqft('200');
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@yearMaxSelect');
+        leadDetail.chooseOptionElement('@optionYearMax');
 
-        leadDetail.chooseDaysOnMarket();
-        client.pause(delayTime);
+        leadDetail.clickCheckbox('@houseCheckboxSaveSearch');
 
-        leadDetail.selectDayOnMarket();
-        client.pause(delayTime);
+        leadDetail.clickButton('@OpenHouseButton');
 
-        leadDetail.checkNewAndUpdated();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@daysOnMarketSelect');
+        leadDetail.chooseOptionElement('@optionDaysOnMarket');
 
-        leadDetail.chooseFrequency();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@lotSizeMinSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMin');
 
-        leadDetail.selectFrequency();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@lotSizeMaxSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMax');
 
-        leadDetail
-            .submitAndSave();
+        leadDetail.clickCheckbox('@newOrUpdatedCheckbox');
+
+        leadDetail.chooseSelectElement('@frequencySelect');
+        leadDetail.chooseOptionElement('@optionFrequency');
+
+        leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
 
-        leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 1: C-Road, CA (+1 locations), 5+ Beds, 6+ Baths, 200+ Sqft $200k-$400k');
         client.end();
     }
 };

@@ -8,99 +8,63 @@ export default {
         const delayTime = client.globals.delayTime;
         const waitForAPICallback = client.globals.waitForAPICallback;
         leadDetail
-            .navigate('http://localhost:7811/lead-detail/44bd6468-31ca-431d-80b3-7e14270baf46')
+            .navigate()
             .login( constantsLogin.emailPass, constantsLogin.passwordPass)
         client.pause(waitForAPICallback);
 
-        // Run Test Case 3
-        leadDetail.openSaveSearchBlock();
-        client.pause(waitForAPICallback);
-
-        leadDetail
-            .inputSaveSearch('Test label 3','C-Road, CA')
-        client.pause(waitForAPICallback);
-        leadDetail
-            .selectCity();
+        leadDetail.addSaveSearch();
         client.pause(delayTime);
-        leadDetail
-            .checkHouseCheckbox();
-        client.pause(delayTime);
-        leadDetail
-            .selectAmenity();
-        client.pause(delayTime);
-
-        leadDetail.submitAndSave();
-        client.pause(waitForAPICallback);
-
-        // Edit resutl Saved Search test case 3
-        leadDetail.openEditSaveSearchStandardPopup();
-        client.pause(waitForAPICallback);
 
         leadDetail.changeInputLabelAndLocation("Test label 4")
-        client.pause(waitForAPICallback);
+        client.pause(delayTime);
 
-        leadDetail.inputLocation("Lost Bridge Village, AR")
-        client.pause(waitForAPICallback);
+        leadDetail.clickCheckbox('@favoriteCityCheckbox');
 
-        leadDetail.selectCity();
-        client.pause(waitForAPICallback);
+        leadDetail.changeTabs('@tabMapSearch');
 
-        leadDetail.checkCondosCheckbox();
-        client.pause(waitForAPICallback);
-
-        leadDetail.checkApartmentsCheckbox();
-        client.pause(waitForAPICallback);
-
-        leadDetail.checkLandCheckbox();
-        client.pause(waitForAPICallback);
+        leadDetail.drawPolygon();
 
         leadDetail.inputPrice('200', '400');
         client.pause(delayTime);
 
-        leadDetail.chooseBedRoom();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@bedroomsSelect');
+        leadDetail.chooseOptionElement('@optionBedrooms');
 
-        leadDetail.selectBedRoom();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@BathsSelect');
+        leadDetail.chooseOptionElement('@optionBaths');
 
-        leadDetail.chooseBaths();
-        client.pause(delayTime);
+        leadDetail.inputSqft('0', '2000');
 
-        leadDetail.selectBaths();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@yearMinSelect');
+        leadDetail.chooseOptionElement('@optionYearMin');
 
-        leadDetail.inputSqft('200');
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@yearMaxSelect');
+        leadDetail.chooseOptionElement('@optionYearMax');
 
-        leadDetail.chooseDaysOnMarket();
-        client.pause(delayTime);
+        leadDetail.clickCheckbox('@houseCheckboxSaveSearch');
 
-        leadDetail.selectDayOnMarket();
-        client.pause(delayTime);
+        leadDetail.clickButton('@OpenHouseButton');
 
-        leadDetail.selectAmenity1();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@daysOnMarketSelect');
+        leadDetail.chooseOptionElement('@optionDaysOnMarket');
 
-        leadDetail.selectAmenity2();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@lotSizeMinSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMin');
 
-        leadDetail.selectAmenity3();
-        client.pause(delayTime);
+        leadDetail.chooseSelectElement('@lotSizeMaxSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMax');
 
-        leadDetail.checkNewAndUpdated();
+        leadDetail.clickCheckbox('@newOrUpdatedCheckbox');
+
+        leadDetail.chooseSelectElement('@frequencySelect');
+        leadDetail.chooseOptionElement('@optionFrequency');
+
+        leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
 
-        leadDetail.chooseFrequency();
-        client.pause(delayTime);
-
-        leadDetail.selectFrequency();
-        client.pause(delayTime);
-
-        leadDetail
-            .submitAndSave();
+        leadDetail.cancelPopup();
         client.pause(waitForAPICallback);
 
-        leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 4: C-Road, CA (+1 locations), 5+ Beds, 6+ Baths, 200+ Sqft $200k-$400k');
-        /*client.end();*/
+        client.end();
     }
 };

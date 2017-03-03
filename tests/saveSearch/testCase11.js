@@ -8,15 +8,16 @@ export default {
         const delayTime = client.globals.delayTime;
         const waitForAPICallback = client.globals.waitForAPICallback;
         leadDetail
-            .navigate()
+            .navigate('http://localhost:7811/lead-detail/084f5ecb-c9b8-44ef-92eb-a83c9f675af9')
             .login( constantsLogin.emailPass, constantsLogin.passwordPass )
         client.pause(waitForAPICallback);
 
-        leadDetail.openEditSaveSearchFeature();
-        client.pause(delayTime);
+        leadDetail.changeTabs('@tabSaveSearch')
 
-        leadDetail.changeInputLabelAndLocation('Test label 10')
-        leadDetail.clickCheckbox('@favoriteCityCheckbox1')
+        leadDetail.editSaveSearch('@editButtonTestCase11')
+        client.pause(delayTime)
+
+        leadDetail.changeInputLabelAndLocation('Test label 40')
         leadDetail.inputPrice('200', '400')
 
         leadDetail.chooseSelectElement('@bedroomsSelect');
@@ -25,16 +26,20 @@ export default {
         leadDetail.chooseSelectElement('@BathsSelect');
         leadDetail.chooseOptionElement('@optionBathsEdit');
 
+        leadDetail.clickCheckbox('@testCheckboxSaveSearch');
+
         leadDetail.chooseSelectElement('@daysOnMarketSelect');
         leadDetail.chooseOptionElement('@optionDaysOnMarketEdit');
 
-        leadDetail.chooseSelectElement('@frequencySelect');
+        leadDetail.clickCheckbox('@newOrUpdatedCheckbox');
+
+        leadDetail.chooseSelectElement('@frequencySelectWithAmentity');
         leadDetail.chooseOptionElement('@optionFrequencyWeekly');
 
         leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
         successPage.expect.element('@main').to.be.visible;
 
-        /*client.end();*/
+        client.end();
     }
 };

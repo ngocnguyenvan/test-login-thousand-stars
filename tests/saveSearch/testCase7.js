@@ -8,16 +8,64 @@ export default {
         const delayTime = client.globals.delayTime;
         const waitForAPICallback = client.globals.waitForAPICallback;
         leadDetail
-            .navigate('http://localhost:7811/lead-detail/44bd6468-31ca-431d-80b3-7e14270baf46')
+            .navigate()
             .login( constantsLogin.emailPass, constantsLogin.passwordPass)
         client.pause(waitForAPICallback);
 
-        // Run Test Case 3
-        leadDetail.openEditSaveSearchStandardPopup();
+        leadDetail.addSaveSearch();
         client.pause(delayTime);
-        leadDetail.delete();
-        //leadDetail.getAlertText().to.equal('Are you sure?')
 
-        /*client.end();*/
+        leadDetail.changeInputLabelAndLocation("Test label 4")
+        client.pause(delayTime);
+
+        leadDetail.clickCheckbox('@favoriteCityCheckbox');
+
+        leadDetail.changeTabs('@tabMapSearch');
+
+        leadDetail.drawPolygon();
+
+        leadDetail.inputPrice('200', '400');
+        client.pause(delayTime);
+
+        leadDetail.chooseSelectElement('@bedroomsSelect');
+        leadDetail.chooseOptionElement('@optionBedrooms');
+
+        leadDetail.chooseSelectElement('@BathsSelect');
+        leadDetail.chooseOptionElement('@optionBaths');
+
+        leadDetail.inputSqft('0', '2000');
+
+        leadDetail.chooseSelectElement('@yearMinSelect');
+        leadDetail.chooseOptionElement('@optionYearMin');
+
+        leadDetail.chooseSelectElement('@yearMaxSelect');
+        leadDetail.chooseOptionElement('@optionYearMax');
+
+        leadDetail.clickCheckbox('@houseCheckboxSaveSearch');
+
+        leadDetail.clickButton('@OpenHouseButton');
+
+        leadDetail.chooseSelectElement('@daysOnMarketSelect');
+        leadDetail.chooseOptionElement('@optionDaysOnMarket');
+
+        leadDetail.chooseSelectElement('@lotSizeMinSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMin');
+
+        leadDetail.chooseSelectElement('@lotSizeMaxSelect');
+        leadDetail.chooseOptionElement('@optionLotSizeMax');
+
+        leadDetail.clickCheckbox('@newOrUpdatedCheckbox');
+
+        leadDetail.chooseSelectElement('@frequencySelect');
+        leadDetail.chooseOptionElement('@optionFrequency');
+
+        leadDetail.submitAndSave();
+        client.pause(waitForAPICallback);
+
+        leadDetail.acceptPopup();
+        client.pause(waitForAPICallback);
+
+        successPage.expect.element('@main').to.be.visible;
+        client.end();
     }
 };
