@@ -51,15 +51,12 @@ export default {
         leadDetail.chooseSelectElement('@lotSizeMaxSelect');
         leadDetail.chooseOptionElement('@optionLotSizeMax');
 
-        leadDetail.clickCheckbox('@newOrUpdatedCheckbox');
-
-        leadDetail.chooseSelectElement('@frequencySelect');
-        leadDetail.chooseOptionElement('@optionFrequency');
-
         leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
 
-        leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 2: CA, 5+ Beds, 6+ Baths, 0+ Sqft $200k-$400k');
+        leadDetail.changeTabs('@tabSaveSearch');
+
+        leadDetail.expect.element('@reusutlSaveSearchStandard').text.to.equal('Test label 2: CA, 1+ Beds, 2+ Baths, 0+ Sqft $200k-$400k');
         client.end();
     }
 };

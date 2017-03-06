@@ -60,7 +60,7 @@ export default {
         leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
 
-        leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 3: Custom area search, 5+ Beds, 6+ Baths, 0+ Sqft $200k-$400k');
+        leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 3: Custom area search, 1+ Beds, 2+ Baths, 0+ Sqft $200k-$400k');
         client.end();
     }
 };
