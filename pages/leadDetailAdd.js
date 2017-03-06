@@ -50,11 +50,13 @@ const addCommands = {
             .click('@checkboxCreateSavedSearch')
             .click('@saveButton')
     },
-    enterLocation() {
+    enterLocation(label) {
         return this
             .click('@checkboxCreateSavedSearch')
-            .waitForElementVisible('@searchLocationInput', 2000)
-            .setValue('@searchLocationInput', '34')
+            .setValue('@inputLabel', label)
+            .waitForElementVisible('@favoriteCityCheckbox', 3000)
+            .click('@favoriteCityCheckbox')
+            .api.pause(3000)
     },
     clickCancelButton(){
         return this
@@ -106,6 +108,9 @@ export default {
         inputSelectParty: {
           selector: 'div[name="partyId"]',
         },
+        inputLabel: {
+          selector: 'input[name="label"]',
+        },
         checkboxCreateSavedSearch: {
             selector: 'input[type="checkbox"]',
         },
@@ -133,6 +138,18 @@ export default {
         },
         cancelButton: {
             selector: '//button[@class="ylopo-button"]/span[text()="Cancel"]',
+            locateStrategy: 'xpath'
+        },
+        messageError: {
+            selector: '//div[contains(@style,"color: rgb(244, 67, 54); font-size: 12px;")]',
+            locateStrategy: 'xpath'
+        },
+        favoriteCityCheckbox: {
+            selector: '//div[@class="cities-container"]/div[position()=last()]',
+            locateStrategy: 'xpath'
+        },
+        messageExistedEmail: {
+            selector: '//div[@class="message-bin status-FAIL"]',
             locateStrategy: 'xpath'
         }
     }

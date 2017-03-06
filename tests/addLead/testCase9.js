@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Phone number is require': (client) => {
+    'Phone number is blank': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
@@ -18,6 +18,7 @@ export default {
         client.pause(waitForAPICallback);
         addLeadDetail
             .assert.cssProperty("@inputPhoneNumber", "border-color", "rgb(255, 0, 0)");
+        addLeadDetail.expect.element('@messageError').text.to.equal('Field is required.');
         client.end();
     }
 };

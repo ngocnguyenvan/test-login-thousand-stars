@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Email Address không đúng format': (client) => {
+    'Email Address is deleted': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
@@ -15,6 +15,7 @@ export default {
         addLeadDetail.removeInput('test')
         addLeadDetail
             .assert.cssProperty("@inputEmailAddress", "border-color", "rgb(255, 0, 0)");
+        addLeadDetail.expect.element('@messageError').text.to.contain('Field is required.' && 'Field value must be a valid email.');
         client.end();
     }
 };

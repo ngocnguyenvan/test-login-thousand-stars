@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Check hiển thị màn hình add lead detail': (client) => {
+    'Display "add lead detail" screen': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();

@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'First Name is require': (client) => {
+    'First Name is Blank': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
@@ -16,8 +16,8 @@ export default {
         addLeadDetail.chooseParty();
         addLeadDetail.submit();
         client.pause(waitForAPICallback);
-        addLeadDetail
-            .assert.cssProperty("@inputFirstName", "border-color", "rgb(255, 0, 0)");
-       /* client.end();*/
+        addLeadDetail.assert.cssProperty("@inputFirstName", "border-color", "rgb(255, 0, 0)");
+        addLeadDetail.expect.element('@messageError').text.to.equal('Field is required.');
+        client.end();
     }
 };

@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Last Name is deleted blank': (client) => {
+    'Add lead with Saved search': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
@@ -11,10 +11,13 @@ export default {
             .login( constantsLogin.emailPass, constantsLogin.passwordPass)
         client.pause(waitForAPICallback);
         addLeadDetail.clickAddLeadButton();
-        addLeadDetail.enterInput("@inputLastName", 'Nguyen')
-        addLeadDetail.removeInput('Nguyen')
-        addLeadDetail.assert.cssProperty("@inputLastName", "border-color", "rgb(255, 0, 0)");
-        addLeadDetail.expect.element('@messageError').text.to.equal('Field is required.');
+        addLeadDetail.enterNewLeadDetails('Nguyen','Ha', 'test@gmail.com', '3453454');
+        addLeadDetail.selectParty();
+        addLeadDetail.chooseParty();
+        addLeadDetail.enterLocation("test 16");
+        addLeadDetail.submit();
+        client.pause(waitForAPICallback);
+        successPage.expect.element('@main').to.be.visible;
         client.end();
     }
 };

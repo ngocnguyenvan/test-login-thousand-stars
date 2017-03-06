@@ -18,6 +18,7 @@ export default {
         client.pause(waitForAPICallback);
         addLeadDetail
             .assert.cssProperty("@inputPhoneNumber", "border-color", "rgb(255, 0, 0)");
+        addLeadDetail.expect.element('@messageError').text.to.equal('Field value must be a valid phone number.');
         client.end();
     }
 };

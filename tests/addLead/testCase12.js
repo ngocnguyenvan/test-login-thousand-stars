@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Invalid Phone number (bắt đầu bằng 1, và ít hơn 11 kí tự)': (client) => {
+    'Invalid Phone number - start with 1  and less than 11 characters': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
@@ -18,6 +18,7 @@ export default {
         client.pause(waitForAPICallback);
         addLeadDetail
             .assert.cssProperty("@inputPhoneNumber", "border-color", "rgb(255, 0, 0)");
+        addLeadDetail.expect.element('@messageError').text.to.equal('Field value must be a valid phone number.');
         client.end();
     }
 };

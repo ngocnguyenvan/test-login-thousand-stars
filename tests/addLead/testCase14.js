@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Invalid Phone number (xóa hết data tại phone number textbox)': (client) => {
+    'Invalid Phone number - delete phone number': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
@@ -19,6 +19,7 @@ export default {
         client.pause(waitForAPICallback);
         addLeadDetail
             .assert.cssProperty("@inputPhoneNumber", "border-color", "rgb(255, 0, 0)");
+        addLeadDetail.expect.element('@messageError').text.to.contain('Field is required.' && 'Field value must be a valid phone number.');
         client.end();
     }
 };

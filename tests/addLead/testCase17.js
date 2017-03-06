@@ -1,6 +1,6 @@
 export default {
     '@tags': ['addLead'],
-    'Add lead không có Saved search': (client) => {
+    'Add lead without Saved search': (client) => {
         const loginPage = client.page.loginPage();
         const addLeadDetail = client.page.leadDetailAdd();
         const successPage = client.page.successPage();
