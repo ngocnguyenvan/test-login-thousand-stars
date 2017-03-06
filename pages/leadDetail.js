@@ -132,6 +132,7 @@ const leadDetailCommands = {
     // button action
     clickButton(button) {
         return this
+            .waitForElementPresent(button, delayTime)
             .click(button)
             .api.pause(delayTime)
     },
@@ -276,6 +277,11 @@ export default {
             locateStrategy: 'xpath'
         },
 
+        saveAsSearchAlertCheckbox: {
+            selector: '//div[@class="dialog-body"]/div[@class="div-align-right"]/div[@class="check-box"]/input',
+            locateStrategy: 'xpath'
+        },
+
 
         // inputPrice
         priceMinInput: {
@@ -360,12 +366,28 @@ export default {
             selector: '//body/div[position()=2]/div/div/div/div[position()=40]',
             locateStrategy: 'xpath'
         },
+        optionYear2017: {
+            selector: '//body/div[position()=2]/div/div/div/div[position()=2]',
+            locateStrategy: 'xpath'
+        },
+        optionYear2016: {
+            selector: '//body/div[position()=2]/div/div/div/div[position()=3]',
+            locateStrategy: 'xpath'
+        },
         optionLotSizeMin: {
             selector: '//body/div[position()=2]/div/div/div/div[position()=7]',
             locateStrategy: 'xpath'
         },
         optionLotSizeMax: {
             selector: '//body/div[position()=2]/div/div/div/div[position()=16]',
+            locateStrategy: 'xpath'
+        },
+        optionLotSize6: {
+            selector: '//body/div[position()=2]/div/div/div/div[position()=12]',
+            locateStrategy: 'xpath'
+        },
+        optionLotSize7: {
+            selector: '//body/div[position()=2]/div/div/div/div[position()=13]',
             locateStrategy: 'xpath'
         },
 
@@ -417,10 +439,31 @@ export default {
             selector:  '//table[@class="saved-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="saveSearch-column3 ylopo-row-column"]/a',
             locateStrategy: 'xpath'
         },
+        pushListingButton: {
+            selector:  '//span[@class="fa fa-bell"]',
+            locateStrategy: 'xpath'
+        },
+        startNewSearchButton: {
+            selector:  '//button[@class="start-new-search ylopo-button"]',
+            locateStrategy: 'xpath'
+        },
+        seeListingButton: {
+            selector: '//button/span[text()="See Listings"]',
+            locateStrategy: 'xpath'
+        },
+        saveListButton: {
+            selector: '//button[text()="Save List"]',
+            locateStrategy: 'xpath'
+        },
+        saveListButtonInDialog: {
+            selector: '//div[@class="dialog-body"]/div[@class="div-align-center"]/button[text()="Save List"]',
+            locateStrategy: 'xpath'
+        },
+
 
         // div result
         reusutlSaveSearchStandard: {
-            selector: '//table[@class="lead-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="column1 ylopo-row-column"]',
+            selector: '//table[@class="saved-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="saveSearch-column2 ylopo-row-column"]',
             locateStrategy: 'xpath'
         },
 

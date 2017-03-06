@@ -1,6 +1,6 @@
 export default {
     '@tags': ['SaveSearch'],
-    'Save search with empty Location': (client) => {
+    'Add saved search has amenities. partyID = 10233 which has favourite city ': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();

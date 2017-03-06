@@ -1,6 +1,6 @@
 export default {
 	'@tags': ['savedSearch'],
-  	'Add Saved search có Favourite cities': (client) => {
+  	'Adding Saved search which has Favourite cities': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();
@@ -57,6 +57,8 @@ export default {
 
         leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
+
+        leadDetail.changeTabs('@tabSaveSearch')
 
         leadDetail.expect.element('@reusutlSaveSearchFeatured').text.to.equal('Test label 1: Stevensville, MD, 1+ Beds, 2+ Baths, 0+ Sqft $100k-$1m');
         client.end();

@@ -1,6 +1,6 @@
 export default {
     '@tags': ['savedSearch'],
-    'Add Saved search có All Area': (client) => {
+    'Adding Saved search has All Area': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();

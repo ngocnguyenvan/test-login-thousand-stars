@@ -1,6 +1,6 @@
 export default {
     '@tags': ['savedSearch'],
-    'View Edit screen': (client) => {
+    'Add Saved search has Map Search': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();

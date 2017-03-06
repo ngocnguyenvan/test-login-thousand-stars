@@ -1,6 +1,6 @@
 export default {
     '@tags': ['savedSearch'],
-    'Edit Save search không có amenities': (client) => {
+    'Add Saved search has Map Search and Favourite City': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();

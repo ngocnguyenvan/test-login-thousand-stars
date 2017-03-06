@@ -1,6 +1,6 @@
 export default {
     '@tags': ['savedSearch'],
-    'Validate Saved Search If Price Max = 10000': (client) => {
+    'Validate Saved Search If Lot Size Min > Lot Size Max': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();
@@ -15,10 +15,16 @@ export default {
         leadDetail.addSaveSearch();
         client.pause(delayTime);
         leadDetail.clickCheckbox('@favoriteCityCheckbox');
-        leadDetail.inputPrice(10000, 9999)
+
+        leadDetail.chooseSelectElement('@lotSizeMinSelect');
+        leadDetail.chooseOptionElement('@optionLotSize7');
+
+        leadDetail.chooseSelectElement('@lotSizeMaxSelect');
+        leadDetail.chooseOptionElement('@optionLotSize6');
+
         leadDetail.submitAndSave();
         client.pause(waitForAPICallback);
-        leadDetail.assert.cssProperty("@priceMaxInput", "border-color", "rgb(255, 0, 0)");
+        leadDetail.assert.cssProperty("@lotSizeMaxSelect", "border-color", "rgb(255, 0, 0)");
         client.end();
     }
 };

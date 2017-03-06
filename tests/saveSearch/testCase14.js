@@ -1,6 +1,6 @@
 export default {
     '@tags': ['savedSearch'],
-    'Add Saved search có Favourite cities': (client) => {
+    'Delete Saved search. Click Cancel': (client) => {
         const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();

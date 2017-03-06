@@ -1,6 +1,6 @@
 export default {
 	'@tags': ['savedSearch'],
-  	'Check hiển thị dialog [Create new Saved Search]': (client) => {
+  	'Display "Create new Saved Search] screen': (client) => {
 		const loginPage = client.page.loginPage();
         const leadDetail = client.page.leadDetail();
         const successPage = client.page.successPage();
