@@ -27,10 +27,28 @@ const leadDetailCommand = {
                 break;
         }
     },
+    switchWindow() {
+        this.api.window_handles(function(result) {
+         var handle = result.value[0];
+         this.switchWindow(handle);
+       });
+    },
+    clickElement(elements) {
+        return this
+            .waitForElementPresent(elements, 3000)
+            .click(elements)
+            .api.pause(3000)
+    },
+    inputLabel(label) {
+        return this
+            .setValue('@addSearchLabelInput', label)
+            .api.pause(3000)
+    },
     createNewSearch(label) {
         return this
             .setValue('@addSearchLabelInput', label)
             .click('@newOrleansCheckbox')
+            .api.pause(3000)
     },
     addLeadButtonClick() {
         return this
@@ -63,6 +81,7 @@ const leadDetailCommand = {
     newAndAlertListingCheckBoxClick() {
         return this
             .click('@newAndAlertListingCheckBox')
+            .api.pause(3000)
     },
     submitAndSaveButtonClick() {
         return this
@@ -125,6 +144,83 @@ export default {
         submitAndSaveButton: {
             selector: '//button[@class="actionButton ylopo-button"][span="Submit and Save"]',
             locateStrategy: 'xpath',
+        },
+        pushListingButton: {
+            selector: '//div[@class="icon active"]/span[@class="fa fa-bell"]',
+            locateStrategy: 'xpath',
+        },
+        sendListingButton: {
+            selector: '//button[@class="start-new-search ylopo-button"]',
+            locateStrategy: 'xpath',
+        },
+        seeListingButton: {
+            selector: '//button/span[text()="See Listings"]',
+            locateStrategy: 'xpath'
+        },
+        saveListButton: {
+            selector: '//button[text()="Save List"]',
+            locateStrategy: 'xpath'
+        },
+        saveListButtonInDialog: {
+            selector: '//div[@class="dialog-body"]/div[@class="div-align-center"]/button[text()="Save List"]',
+            locateStrategy: 'xpath'
+        },
+        saveAsSearchAlertCheckbox: {
+            selector: '//div[@class="dialog-body"]/div[@class="div-align-right"]/div[@class="check-box"]/input',
+            locateStrategy: 'xpath'
+        },
+        newOrUpdatedCheckbox: {
+            selector: 'input[value="NEW_OR_UPDATED"]'
+        },
+        reusutlSaveSearchStandard: {
+            selector: '//table[@class="saved-search-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="saveSearch-column2 ylopo-row-column"]',
+            locateStrategy: 'xpath'
+        },
+
+        reusutlSaveSearchFeatured: {
+            selector: '//table[@class="listing-alert-list"]/tbody/tr[@class="row-featured"][position()=last()]/td[@class="column2 ylopo-row-column"]',
+            locateStrategy: 'xpath'
+        },
+
+        editButtonSaveSearchFeatured: {
+            selector:  '//table[@class="listing-alert-list"]/tbody/tr[@class="row-featured"][position()=last()]/td[@class="column6 ylopo-row-column"]/button',
+            locateStrategy: 'xpath'
+        },
+        resultTestCase19: {
+            selector:  '//table[@class="listing-alert-list"]/tbody/tr[@class="row-standard"][position()=last()]/td[@class="column1 ylopo-row-column"]',
+            locateStrategy: 'xpath'
+        },
+        tabAllSearch: {
+            selector: '//div[@class="lead-details-cell lead-saved-searches-block"]/div/div[position()=last()]/div/div[position()=1]/button[position()=3]',
+            locateStrategy: 'xpath'
+        },
+        viewDetailsButton: {
+            selector: '//table[@class="all-searches-list"]/tbody[@class="lead-search-list-body"]/tr[position()=1]/td[position()=last()]/button',
+            locateStrategy: 'xpath'
+        },
+        viewMoreLessLink: {
+            selector: '//a[@class = "view-more-less"]',
+            locateStrategy: 'xpath'
+        },
+        listingViewTab: {
+            selector: '//button[@id = "listings-viewed"]/div/span[text() = "Listings Viewed"]',
+            locateStrategy: 'xpath'
+        },
+        favoriteListingTab: {
+            selector: '//div[@class="tabs"]/div/button[position()=2]/div/span[text() = "Favorite Listings"]',
+            locateStrategy: 'xpath'
+        },
+        listingAlertTab: {
+            selector: '//div[@class="tabs"]/div/button[position()=4]/div/span[text() = "Listing Alert History"]',
+            locateStrategy: 'xpath'
+        },
+        enqueueAlertButton: {
+            selector: '//button/span[text() = "Enqueue Alert"]',
+            locateStrategy: 'xpath'
+        },
+        detailListingAlertHistoryButton: {
+            selector: '//div[@class="listing-alert-email-block"]/div[position()=1]/div[@class="form-group"]/button/span',
+            locateStrategy: 'xpath'
         }
     }
 };
